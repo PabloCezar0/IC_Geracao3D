@@ -1,0 +1,133 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+
+    float x0 = 2,    y0 = 0,    z0 = 0;
+    float x1 = 1,    y1 = sqrt(3),    z1 = 0;
+    float x2 = -1,    y2 = sqrt(3),    z2 = 0;
+    float x3 = -2,    y3 = 0,    z3 = 0;
+    float x4 = -1,    y4 = -sqrt(3),    z4 = 0;
+    float x5 = 1,    y5 = -sqrt(3),    z5 = 0;
+    float x6 = 0,    y6 = 0,    z6 = 0;
+    
+    float xr0, yr0, zr0;
+    float xr1, yr1, zr1;
+    float xr2, yr2, zr2;
+    float xr3, yr3, zr3;
+    float xr4, yr4, zr4;
+    float xr5, yr5, zr5;
+    float xr6, yr6, zr6;
+     
+
+    
+
+
+        //[x y z] * [1  	0	        0]
+		//          [0	   cos0	    -sin0]
+		//          [0	   sin0	      cos]
+        // OBS: 30 graus em radianos eh 0.52
+        // cos(60) = 0.5
+        // sen(60) = 0.866
+        // [x   y   z][1      0         0]
+        //            [0      0.5  -0.866]
+        //            [0      0.866   0.5]
+        
+        xr0 = x0;
+        yr0 = 0.5*y0;
+        zr0 = -0.866*y0;
+        
+        xr1 = x1;
+        yr1 = 0.5*y1;
+        zr1 = -0.866*y1;
+        
+        xr2 = x2;
+        yr2 = 0.5*y2;
+        zr2 = -0.866*y2;
+        
+        xr3 = x3;
+        yr3 = 0.5*y3;
+        zr3 = -0.866*y3;
+        
+        xr4 = x4;
+        yr4 = 0.5*y4;
+        zr4 = -0.866*y4;
+        
+        xr5 = x5;
+        yr5 = 0.5*y5;
+        zr5 = -0.866*y5;
+        
+        xr6 = x6;
+        yr6 = 0.5*y6;
+        zr6 = -0.866*y6;
+        
+        
+        
+    float xrr0, yrr0, zrr0;
+    float xrr1, yrr1, zrr1;
+    float xrr2, yrr2, zrr2;
+    float xrr3, yrr3, zrr3;
+    float xrr4, yrr4, zrr4;
+    float xrr5, yrr5, zrr5;
+    float xrr6, yrr6, zrr6;
+    
+    
+        
+    
+    
+        //[x y z] * [cos0  	   0     sin0]
+		//          [0	       1        0]
+		//          [-sin0	   0	 cos0]
+        // OBS: 30 graus em radianos eh 0.52
+        // cos(90) = 0
+        // sen(90) = 1
+        // [x   y   z][0      0     1]
+        //            [0      1     0]
+        //            [-1     0     0]
+        
+        xrr0 = -zr0;
+        yrr0 = yr0;
+        zrr0 = xr0;
+        
+        xrr1 = -zr1;
+        yrr1 = yr1;
+        zrr1 = xr1;
+        
+        xrr2 = -zr2;
+        yrr2 = yr2;
+        zrr2 = xr2;
+        
+        xrr3 = -zr3;
+        yrr3 = yr3;
+        zrr3 = xr3;
+        
+        xrr4 = -zr4;
+        yrr4 = yr4;
+        zrr4 = xr4;
+        
+        xrr5 = -zr5;
+        yrr5 = yr5;
+        zrr5 = xr5;
+        
+        xrr6 = -zr6;
+        yrr6 = yr6;
+        zrr6 = xr6;
+
+        
+        printf("\n%f\t%f\t%f", xrr0, yrr0, zrr0); 
+        printf("\n%f\t%f\t%f", xrr1, yrr1, zrr1); 
+        printf("\n%f\t%f\t%f", xrr2, yrr2, zrr2); 
+        printf("\n%f\t%f\t%f", xrr3, yrr3, zrr3); 
+        printf("\n%f\t%f\t%f", xrr4, yrr4, zrr4); 
+        printf("\n%f\t%f\t%f", xrr5, yrr5, zrr5); 
+        printf("\n%f\t%f\t%f", xrr6, yrr6, zrr6); 
+
+        
+
+
+
+
+
+  
+}//end-main

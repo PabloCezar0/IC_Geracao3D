@@ -1,0 +1,828 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+
+    float BX0 = 1.5, BY0 = 0.0, BZ0 = 0.0;
+    float BX1 = 1.5, BY1 = 0.2, BZ1 = 0.0;
+    float BX2 = 2.0, BY2 = 0.4, BZ2 = 0.0;
+    float BX3 = 2.0, BY3 = 1.0, BZ3 = 0.0;// INFERIOR
+        
+    float BX4 = 2.0, BY4 = 1.0, BZ4 = 0.0;
+    float BX5 = 2.0, BY5 = 1.6, BZ5 = 0.0;
+    float BX6 = 1.75, BY6 = 2.3, BZ6 = 0.0;
+    float BX7 = 1.5, BY7 = 3.0, BZ7 = 0.0;//SUPERIOR
+        
+    float BX8 = 1.5, BY8 = 3.0, BZ8 = 0.0;
+    float BX9 = 1.45, BY9 = 3.15, BZ9 = 0.0;
+    float BX10 = 1.35, BY10 = 3.15, BZ10 = 0.0;
+    float BX11 = 1.4, BY11 = 3.0, BZ11 = 0.0;//TAMPA
+        
+    float xr0, yr0, zr0;
+    float xr1, yr1, zr1;
+    float xr2, yr2, zr2;
+    float xr3, yr3, zr3;
+    float xr4, yr4, zr4;
+    float xr5, yr5, zr5;
+    float xr6, yr6, zr6;
+    float xr7, yr7, zr7;
+    float xr8, yr8, zr8;
+    float xr9, yr9, zr9;
+    float xr10, yr10, zr10;
+    float xr11, yr11, zr11;
+     
+
+    float ur0, vr0, wr0;
+    float ur1, vr1, wr1;
+    float ur2, vr2, wr2;
+    float ur3, vr3, wr3;
+    float ur4, vr4, wr4;
+    float ur5, vr5, wr5;
+    float ur6, vr6, wr6;
+    float ur7, vr7, wr7;
+    float ur8, vr8, wr8;
+    float ur9, vr9, wr9;
+    float ur10, vr10, wr10;
+    float ur11, vr11, wr11;
+    
+    
+        printf("\n%f\t%f\t%f", BX0, BY0, BZ0);
+        printf("\n%f\t%f\t%f", BX1, BY1, BZ1);
+        printf("\n%f\t%f\t%f", BX2, BY2, BZ2);
+        printf("\n%f\t%f\t%f", BX3, BY3, BZ3);
+        printf("\n%f\t%f\t%f", BX4, BY4, BZ4);
+        printf("\n%f\t%f\t%f", BX5, BY5, BZ5);
+        printf("\n%f\t%f\t%f", BX6, BY6, BZ6);
+        printf("\n%f\t%f\t%f", BX7, BY7, BZ7);
+        printf("\n%f\t%f\t%f", BX8, BY8, BZ8);
+        printf("\n%f\t%f\t%f", BX9, BY9, BZ9);
+        printf("\n%f\t%f\t%f", BX10, BY10, BZ10);
+        printf("\n%f\t%f\t%f", BX11, BY11, BZ11);
+        printf("\n\n\n\n\n\n\n");
+
+
+        //[x y z] * [cos0	-sin0	0]
+		//          [sin0	cos0	0]
+		//          [0	   0	1]
+        // OBS: 30 graus em radianos eh 0.52
+        // cos(30) = 0.866
+        // sen(30) = 0.5
+        // [x   y   z][0.866  -0.5   0]
+        //            [0.5    0.866  0]
+        //            [0      0      1]
+        
+        xr0 = (0.866*BX0) + (-0.5*BY0);
+        yr0 = BY0;
+        zr0 = (0.5*BX0) + (0.866*BZ0);
+        
+        xr1 = (0.866*BX1) + (-0.5*BY1);
+        yr1 = BY1;
+        zr1 = (0.5*BX1) + (0.866*BZ1);
+        
+        
+        xr2 = (0.866*BX2) + (-0.5*BY2);
+        yr2 = BY2;
+        zr2 = (0.5*BX2) + (0.866*BZ2);
+        
+        
+        xr3 = (0.866*BX3) + (-0.5*BY3);
+        yr3 = BY3;
+        zr3 = (0.5*BX3) + (0.866*BZ3);
+        
+        
+        xr4 = (0.866*BX4) + (-0.5*BY4);
+        yr4 = BY4;
+        zr4 = (0.5*BX4) + (0.866*BZ4);
+        
+        
+        xr5 = (0.866*BX5) + (-0.5*BY5);
+        yr5 = BY5;
+        zr5 = (0.5*BX5) + (0.866*BZ5);
+        
+        
+        xr6 = (0.866*BX6) + (-0.5*BY6);
+        yr6 = BY6;
+        zr6 = (0.5*BX6) + (0.866*BZ6);
+        
+        
+        xr7 = (0.866*BX7) + (-0.5*BY7);
+        yr7 = BY7;
+        zr7 = (0.5*BX7) + (0.866*BZ7);
+        
+        
+        xr8 = (0.866*BX8) + (-0.5*BY8);
+        yr8 = BY8;
+        zr8 = (0.5*BX8) + (0.866*BZ8);
+        
+        
+        xr9 = (0.866*BX9) + (-0.5*BY9);
+        yr9 = BY9;
+        zr9 = (0.5*BX9) + (0.866*BZ9);
+        
+        
+        xr10 = (0.866*BX10) + (-0.5*BY10);
+        yr10 = BY10;
+        zr10 = (0.5*BX10) + (0.866*BZ10);
+        
+        
+        xr11 = (0.866*BX11) + (-0.5*BY11);
+        yr11 = BY11;
+        zr11 = (0.5*BX11) + (0.866*BZ11);
+        
+        
+        
+
+        
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 30 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 30 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 30 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 30 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 30 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 30 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 30 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 30 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 30 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 30 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 30 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 30 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        ur0 = (0.866*xr0) + (-0.5*yr0);
+        vr0 = yr0;
+        wr0 = (0.5*xr0) + (0.866*zr0);
+        
+        ur1 = (0.866*xr1) + (-0.5*yr1);
+        vr1 = yr1;
+        wr1 = (0.5*xr1) + (0.866*zr1);
+        
+        ur2 = (0.866*xr2) + (-0.5*yr2);
+        vr2 = yr2;
+        wr2 = (0.5*xr2) + (0.866*zr2);
+        
+        ur3 = (0.866*xr3) + (-0.5*yr3);
+        vr3 = yr3;
+        wr3 = (0.5*xr3) + (0.866*zr3);
+
+        ur4 = (0.866*xr4) + (-0.5*yr4);
+        vr4 = yr4;
+        wr4 = (0.5*xr4) + (0.866*zr4);
+        
+        ur5 = (0.866*xr5) + (-0.5*yr5);
+        vr5 = yr5;
+        wr5 = (0.5*xr5) + (0.866*zr5);
+        
+        ur6 = (0.866*xr6) + (-0.5*yr6);
+        vr6 = yr6;
+        wr6 = (0.5*xr6) + (0.866*zr6);
+        
+        ur7 = (0.866*xr7) + (-0.5*yr7);
+        vr7 = yr7;
+        wr7 = (0.5*xr7) + (0.866*zr7);
+        
+        ur8 = (0.866*xr8) + (-0.5*yr8);
+        vr8 = yr8;
+        wr8 = (0.5*xr8) + (0.866*zr8);
+        
+        ur9 = (0.866*xr9) + (-0.5*yr9);
+        vr9 = yr9;
+        wr9 = (0.5*xr9) + (0.866*zr9);
+        
+        ur10 = (0.866*xr10) + (-0.5*yr10);
+        vr10 = yr10;
+        wr10 = (0.5*xr10) + (0.866*zr10);
+        
+        ur11 = (0.866*xr11) + (-0.5*yr11);
+        vr11 = yr11;
+        wr11 = (0.5*xr11) + (0.866*zr11);
+        
+        
+        printf("\n%f\t%f\t%f", ur0, vr0, wr0); // 60 graus
+        printf("\n%f\t%f\t%f", ur1, vr1, wr1); // 60 graus
+        printf("\n%f\t%f\t%f", ur2, vr2, wr2); // 60 graus
+        printf("\n%f\t%f\t%f", ur3, vr3, wr3); // 60 graus
+        printf("\n%f\t%f\t%f", ur4, vr4, wr4); // 60 graus
+        printf("\n%f\t%f\t%f", ur5, vr5, wr5); // 60 graus
+        printf("\n%f\t%f\t%f", ur6, vr6, wr6); // 60 graus
+        printf("\n%f\t%f\t%f", ur7, vr7, wr7); // 60 graus
+        printf("\n%f\t%f\t%f", ur8, vr8, wr8); // 60 graus
+        printf("\n%f\t%f\t%f", ur9, vr9, wr9); // 60 graus
+        printf("\n%f\t%f\t%f", ur10, vr10, wr10); // 60 graus
+        printf("\n%f\t%f\t%f", ur11, vr11, wr11); // 60 graus
+        printf("\n\n\n\n\n\n\n");
+
+
+        xr0 = (0.866*ur0) + (-0.5*vr0);
+        yr0 = vr0;
+        zr0 = (0.5*ur0) + (0.866*wr0);
+        
+        xr1 = (0.866*ur1) + (-0.5*vr1);
+        yr1 = vr1;
+        zr1 = (0.5*ur1) + (0.866*wr1);
+        
+        xr2 = (0.866*ur2) + (-0.5*vr2);
+        yr2 = vr2;
+        zr2 = (0.5*ur2) + (0.866*wr2);
+        
+        xr3 = (0.866*ur3) + (-0.5*vr3);
+        yr3 = vr3;
+        zr3 = (0.5*ur3) + (0.866*wr3);
+
+        xr4 = (0.866*ur4) + (-0.5*vr4);
+        yr4 = vr4;
+        zr4 = (0.5*ur4) + (0.866*wr4);
+
+
+        xr5 = (0.866*ur5) + (-0.5*vr5);
+        yr5 = vr5;
+        zr5 = (0.5*ur5) + (0.866*wr5);
+
+
+        xr6 = (0.866*ur6) + (-0.5*vr6);
+        yr6 = vr6;
+        zr6 = (0.5*ur6) + (0.866*wr6);
+
+
+        xr7 = (0.866*ur7) + (-0.5*vr7);
+        yr7 = vr7;
+        zr7 = (0.5*ur7) + (0.866*wr7);
+
+
+        xr8 = (0.866*ur8) + (-0.5*vr8);
+        yr8 = vr8;
+        zr8 = (0.5*ur8) + (0.866*wr8);
+
+
+        xr9 = (0.866*ur9) + (-0.5*vr9);
+        yr9 = vr9;
+        zr9 = (0.5*ur9) + (0.866*wr9);
+
+
+        xr10 = (0.866*ur10) + (-0.5*vr10);
+        yr10 = vr10;
+        zr10 = (0.5*ur10) + (0.866*wr10);
+        
+        xr11 = (0.866*ur11) + (-0.5*vr11);
+        yr11 = vr11;
+        zr11 = (0.5*ur11) + (0.866*wr11);
+
+
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 90 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 90 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 90 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 90 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 90 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 90 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 90 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 90 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 90 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 90 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 90 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 90 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        
+        
+        
+        
+        ur0 = (0.866*xr0) + (-0.5*yr0);
+        vr0 = yr0;
+        wr0 = (0.5*xr0) + (0.866*zr0);
+        
+        ur1 = (0.866*xr1) + (-0.5*yr1);
+        vr1 = yr1;
+        wr1 = (0.5*xr1) + (0.866*zr1);
+        
+        ur2 = (0.866*xr2) + (-0.5*yr2);
+        vr2 = yr2;
+        wr2 = (0.5*xr2) + (0.866*zr2);
+        
+        ur3 = (0.866*xr3) + (-0.5*yr3);
+        vr3 = yr3;
+        wr3 = (0.5*xr3) + (0.866*zr3);
+
+        ur4 = (0.866*xr4) + (-0.5*yr4);
+        vr4 = yr4;
+        wr4 = (0.5*xr4) + (0.866*zr4);
+        
+        ur5 = (0.866*xr5) + (-0.5*yr5);
+        vr5 = yr5;
+        wr5 = (0.5*xr5) + (0.866*zr5);
+        
+        ur6 = (0.866*xr6) + (-0.5*yr6);
+        vr6 = yr6;
+        wr6 = (0.5*xr6) + (0.866*zr6);
+        
+        ur7 = (0.866*xr7) + (-0.5*yr7);
+        vr7 = yr7;
+        wr7 = (0.5*xr7) + (0.866*zr7);
+        
+        ur8 = (0.866*xr8) + (-0.5*yr8);
+        vr8 = yr8;
+        wr8 = (0.5*xr8) + (0.866*zr8);
+        
+        ur9 = (0.866*xr9) + (-0.5*yr9);
+        vr9 = yr9;
+        wr9 = (0.5*xr9) + (0.866*zr9);
+        
+        ur10 = (0.866*xr10) + (-0.5*yr10);
+        vr10 = yr10;
+        wr10 = (0.5*xr10) + (0.866*zr10);
+        
+        ur11 = (0.866*xr11) + (-0.5*yr11);
+        vr11 = yr11;
+        wr11 = (0.5*xr11) + (0.866*zr11);
+        
+        
+        printf("\n%f\t%f\t%f", ur0, vr0, wr0); // 120 graus
+        printf("\n%f\t%f\t%f", ur1, vr1, wr1); // 120 graus
+        printf("\n%f\t%f\t%f", ur2, vr2, wr2); // 120 graus
+        printf("\n%f\t%f\t%f", ur3, vr3, wr3); // 120 graus
+        printf("\n%f\t%f\t%f", ur4, vr4, wr4); // 120 graus
+        printf("\n%f\t%f\t%f", ur5, vr5, wr5); // 120 graus
+        printf("\n%f\t%f\t%f", ur6, vr6, wr6); // 120 graus
+        printf("\n%f\t%f\t%f", ur7, vr7, wr7); // 120 graus
+        printf("\n%f\t%f\t%f", ur8, vr8, wr8); // 120 graus
+        printf("\n%f\t%f\t%f", ur9, vr9, wr9); // 120 graus
+        printf("\n%f\t%f\t%f", ur10, vr10, wr10); // 120 graus
+        printf("\n%f\t%f\t%f", ur11, vr11, wr11); // 120 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        
+        xr0 = (0.866*ur0) + (-0.5*vr0);
+        yr0 = vr0;
+        zr0 = (0.5*ur0) + (0.866*wr0);
+        
+        xr1 = (0.866*ur1) + (-0.5*vr1);
+        yr1 = vr1;
+        zr1 = (0.5*ur1) + (0.866*wr1);
+        
+        xr2 = (0.866*ur2) + (-0.5*vr2);
+        yr2 = vr2;
+        zr2 = (0.5*ur2) + (0.866*wr2);
+        
+        xr3 = (0.866*ur3) + (-0.5*vr3);
+        yr3 = vr3;
+        zr3 = (0.5*ur3) + (0.866*wr3);
+
+        xr4 = (0.866*ur4) + (-0.5*vr4);
+        yr4 = vr4;
+        zr4 = (0.5*ur4) + (0.866*wr4);
+
+
+        xr5 = (0.866*ur5) + (-0.5*vr5);
+        yr5 = vr5;
+        zr5 = (0.5*ur5) + (0.866*wr5);
+
+
+        xr6 = (0.866*ur6) + (-0.5*vr6);
+        yr6 = vr6;
+        zr6 = (0.5*ur6) + (0.866*wr6);
+
+
+        xr7 = (0.866*ur7) + (-0.5*vr7);
+        yr7 = vr7;
+        zr7 = (0.5*ur7) + (0.866*wr7);
+
+
+        xr8 = (0.866*ur8) + (-0.5*vr8);
+        yr8 = vr8;
+        zr8 = (0.5*ur8) + (0.866*wr8);
+
+
+        xr9 = (0.866*ur9) + (-0.5*vr9);
+        yr9 = vr9;
+        zr9 = (0.5*ur9) + (0.866*wr9);
+
+
+        xr10 = (0.866*ur10) + (-0.5*vr10);
+        yr10 = vr10;
+        zr10 = (0.5*ur10) + (0.866*wr10);
+        
+        xr11 = (0.866*ur11) + (-0.5*vr11);
+        yr11 = vr11;
+        zr11 = (0.5*ur11) + (0.866*wr11);
+
+
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 150 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 150 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 150 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 150 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 150 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 150 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 150 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 150 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 150 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 150 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 150 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 150 graus
+        printf("\n\n\n\n\n\n\n");
+
+
+        ur0 = (0.866*xr0) + (-0.5*yr0);
+        vr0 = yr0;
+        wr0 = (0.5*xr0) + (0.866*zr0);
+        
+        ur1 = (0.866*xr1) + (-0.5*yr1);
+        vr1 = yr1;
+        wr1 = (0.5*xr1) + (0.866*zr1);
+        
+        ur2 = (0.866*xr2) + (-0.5*yr2);
+        vr2 = yr2;
+        wr2 = (0.5*xr2) + (0.866*zr2);
+        
+        ur3 = (0.866*xr3) + (-0.5*yr3);
+        vr3 = yr3;
+        wr3 = (0.5*xr3) + (0.866*zr3);
+
+        ur4 = (0.866*xr4) + (-0.5*yr4);
+        vr4 = yr4;
+        wr4 = (0.5*xr4) + (0.866*zr4);
+        
+        ur5 = (0.866*xr5) + (-0.5*yr5);
+        vr5 = yr5;
+        wr5 = (0.5*xr5) + (0.866*zr5);
+        
+        ur6 = (0.866*xr6) + (-0.5*yr6);
+        vr6 = yr6;
+        wr6 = (0.5*xr6) + (0.866*zr6);
+        
+        ur7 = (0.866*xr7) + (-0.5*yr7);
+        vr7 = yr7;
+        wr7 = (0.5*xr7) + (0.866*zr7);
+        
+        ur8 = (0.866*xr8) + (-0.5*yr8);
+        vr8 = yr8;
+        wr8 = (0.5*xr8) + (0.866*zr8);
+        
+        ur9 = (0.866*xr9) + (-0.5*yr9);
+        vr9 = yr9;
+        wr9 = (0.5*xr9) + (0.866*zr9);
+        
+        ur10 = (0.866*xr10) + (-0.5*yr10);
+        vr10 = yr10;
+        wr10 = (0.5*xr10) + (0.866*zr10);
+        
+        ur11 = (0.866*xr11) + (-0.5*yr11);
+        vr11 = yr11;
+        wr11 = (0.5*xr11) + (0.866*zr11);
+        
+        
+        printf("\n%f\t%f\t%f", ur0, vr0, wr0); // 180 graus
+        printf("\n%f\t%f\t%f", ur1, vr1, wr1); // 180 graus
+        printf("\n%f\t%f\t%f", ur2, vr2, wr2); // 180 graus
+        printf("\n%f\t%f\t%f", ur3, vr3, wr3); // 180 graus
+        printf("\n%f\t%f\t%f", ur4, vr4, wr4); // 180 graus
+        printf("\n%f\t%f\t%f", ur5, vr5, wr5); // 180 graus
+        printf("\n%f\t%f\t%f", ur6, vr6, wr6); // 180 graus
+        printf("\n%f\t%f\t%f", ur7, vr7, wr7); // 180 graus
+        printf("\n%f\t%f\t%f", ur8, vr8, wr8); // 180 graus
+        printf("\n%f\t%f\t%f", ur9, vr9, wr9); // 180 graus
+        printf("\n%f\t%f\t%f", ur10, vr10, wr10); // 180 graus
+        printf("\n%f\t%f\t%f", ur11, vr11, wr11); // 180 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        xr0 = (0.866*ur0) + (-0.5*vr0);
+        yr0 = vr0;
+        zr0 = (0.5*ur0) + (0.866*wr0);
+        
+        xr1 = (0.866*ur1) + (-0.5*vr1);
+        yr1 = vr1;
+        zr1 = (0.5*ur1) + (0.866*wr1);
+        
+        xr2 = (0.866*ur2) + (-0.5*vr2);
+        yr2 = vr2;
+        zr2 = (0.5*ur2) + (0.866*wr2);
+        
+        xr3 = (0.866*ur3) + (-0.5*vr3);
+        yr3 = vr3;
+        zr3 = (0.5*ur3) + (0.866*wr3);
+
+        xr4 = (0.866*ur4) + (-0.5*vr4);
+        yr4 = vr4;
+        zr4 = (0.5*ur4) + (0.866*wr4);
+
+
+        xr5 = (0.866*ur5) + (-0.5*vr5);
+        yr5 = vr5;
+        zr5 = (0.5*ur5) + (0.866*wr5);
+
+
+        xr6 = (0.866*ur6) + (-0.5*vr6);
+        yr6 = vr6;
+        zr6 = (0.5*ur6) + (0.866*wr6);
+
+
+        xr7 = (0.866*ur7) + (-0.5*vr7);
+        yr7 = vr7;
+        zr7 = (0.5*ur7) + (0.866*wr7);
+
+
+        xr8 = (0.866*ur8) + (-0.5*vr8);
+        yr8 = vr8;
+        zr8 = (0.5*ur8) + (0.866*wr8);
+
+
+        xr9 = (0.866*ur9) + (-0.5*vr9);
+        yr9 = vr9;
+        zr9 = (0.5*ur9) + (0.866*wr9);
+
+
+        xr10 = (0.866*ur10) + (-0.5*vr10);
+        yr10 = vr10;
+        zr10 = (0.5*ur10) + (0.866*wr10);
+        
+        xr11 = (0.866*ur11) + (-0.5*vr11);
+        yr11 = vr11;
+        zr11 = (0.5*ur11) + (0.866*wr11);
+
+
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 210 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 210 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 210 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 210 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 210 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 210 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 210 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 210 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 210 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 210 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 210 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 210 graus
+        printf("\n\n\n\n\n\n\n");
+
+
+        ur0 = (0.866*xr0) + (-0.5*yr0);
+        vr0 = yr0;
+        wr0 = (0.5*xr0) + (0.866*zr0);
+        
+        ur1 = (0.866*xr1) + (-0.5*yr1);
+        vr1 = yr1;
+        wr1 = (0.5*xr1) + (0.866*zr1);
+        
+        ur2 = (0.866*xr2) + (-0.5*yr2);
+        vr2 = yr2;
+        wr2 = (0.5*xr2) + (0.866*zr2);
+        
+        ur3 = (0.866*xr3) + (-0.5*yr3);
+        vr3 = yr3;
+        wr3 = (0.5*xr3) + (0.866*zr3);
+
+        ur4 = (0.866*xr4) + (-0.5*yr4);
+        vr4 = yr4;
+        wr4 = (0.5*xr4) + (0.866*zr4);
+        
+        ur5 = (0.866*xr5) + (-0.5*yr5);
+        vr5 = yr5;
+        wr5 = (0.5*xr5) + (0.866*zr5);
+        
+        ur6 = (0.866*xr6) + (-0.5*yr6);
+        vr6 = yr6;
+        wr6 = (0.5*xr6) + (0.866*zr6);
+        
+        ur7 = (0.866*xr7) + (-0.5*yr7);
+        vr7 = yr7;
+        wr7 = (0.5*xr7) + (0.866*zr7);
+        
+        ur8 = (0.866*xr8) + (-0.5*yr8);
+        vr8 = yr8;
+        wr8 = (0.5*xr8) + (0.866*zr8);
+        
+        ur9 = (0.866*xr9) + (-0.5*yr9);
+        vr9 = yr9;
+        wr9 = (0.5*xr9) + (0.866*zr9);
+        
+        ur10 = (0.866*xr10) + (-0.5*yr10);
+        vr10 = yr10;
+        wr10 = (0.5*xr10) + (0.866*zr10);
+        
+        ur11 = (0.866*xr11) + (-0.5*yr11);
+        vr11 = yr11;
+        wr11 = (0.5*xr11) + (0.866*zr11);
+        
+        
+        printf("\n%f\t%f\t%f", ur0, vr0, wr0); // 240 graus
+        printf("\n%f\t%f\t%f", ur1, vr1, wr1); // 240 graus
+        printf("\n%f\t%f\t%f", ur2, vr2, wr2); // 240 graus
+        printf("\n%f\t%f\t%f", ur3, vr3, wr3); // 240 graus
+        printf("\n%f\t%f\t%f", ur4, vr4, wr4); // 240 graus
+        printf("\n%f\t%f\t%f", ur5, vr5, wr5); // 240 graus
+        printf("\n%f\t%f\t%f", ur6, vr6, wr6); // 240 graus
+        printf("\n%f\t%f\t%f", ur7, vr7, wr7); // 240 graus
+        printf("\n%f\t%f\t%f", ur8, vr8, wr8); // 240 graus
+        printf("\n%f\t%f\t%f", ur9, vr9, wr9); // 240 graus
+        printf("\n%f\t%f\t%f", ur10, vr10, wr10); // 240 graus
+        printf("\n%f\t%f\t%f", ur11, vr11, wr11); // 240 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        xr0 = (0.866*ur0) + (-0.5*vr0);
+        yr0 = vr0;
+        zr0 = (0.5*ur0) + (0.866*wr0);
+        
+        xr1 = (0.866*ur1) + (-0.5*vr1);
+        yr1 = vr1;
+        zr1 = (0.5*ur1) + (0.866*wr1);
+        
+        xr2 = (0.866*ur2) + (-0.5*vr2);
+        yr2 = vr2;
+        zr2 = (0.5*ur2) + (0.866*wr2);
+        
+        xr3 = (0.866*ur3) + (-0.5*vr3);
+        yr3 = vr3;
+        zr3 = (0.5*ur3) + (0.866*wr3);
+
+        xr4 = (0.866*ur4) + (-0.5*vr4);
+        yr4 = vr4;
+        zr4 = (0.5*ur4) + (0.866*wr4);
+
+
+        xr5 = (0.866*ur5) + (-0.5*vr5);
+        yr5 = vr5;
+        zr5 = (0.5*ur5) + (0.866*wr5);
+
+
+        xr6 = (0.866*ur6) + (-0.5*vr6);
+        yr6 = vr6;
+        zr6 = (0.5*ur6) + (0.866*wr6);
+
+
+        xr7 = (0.866*ur7) + (-0.5*vr7);
+        yr7 = vr7;
+        zr7 = (0.5*ur7) + (0.866*wr7);
+
+
+        xr8 = (0.866*ur8) + (-0.5*vr8);
+        yr8 = vr8;
+        zr8 = (0.5*ur8) + (0.866*wr8);
+
+
+        xr9 = (0.866*ur9) + (-0.5*vr9);
+        yr9 = vr9;
+        zr9 = (0.5*ur9) + (0.866*wr9);
+
+
+        xr10 = (0.866*ur10) + (-0.5*vr10);
+        yr10 = vr10;
+        zr10 = (0.5*ur10) + (0.866*wr10);
+        
+        xr11 = (0.866*ur11) + (-0.5*vr11);
+        yr11 = vr11;
+        zr11 = (0.5*ur11) + (0.866*wr11);
+
+
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 270 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 270 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 270 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 270 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 270 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 270 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 270 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 270 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 270 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 270 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 270 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 270 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        
+        ur0 = (0.866*xr0) + (-0.5*yr0);
+        vr0 = yr0;
+        wr0 = (0.5*xr0) + (0.866*zr0);
+        
+        ur1 = (0.866*xr1) + (-0.5*yr1);
+        vr1 = yr1;
+        wr1 = (0.5*xr1) + (0.866*zr1);
+        
+        ur2 = (0.866*xr2) + (-0.5*yr2);
+        vr2 = yr2;
+        wr2 = (0.5*xr2) + (0.866*zr2);
+        
+        ur3 = (0.866*xr3) + (-0.5*yr3);
+        vr3 = yr3;
+        wr3 = (0.5*xr3) + (0.866*zr3);
+
+        ur4 = (0.866*xr4) + (-0.5*yr4);
+        vr4 = yr4;
+        wr4 = (0.5*xr4) + (0.866*zr4);
+        
+        ur5 = (0.866*xr5) + (-0.5*yr5);
+        vr5 = yr5;
+        wr5 = (0.5*xr5) + (0.866*zr5);
+        
+        ur6 = (0.866*xr6) + (-0.5*yr6);
+        vr6 = yr6;
+        wr6 = (0.5*xr6) + (0.866*zr6);
+        
+        ur7 = (0.866*xr7) + (-0.5*yr7);
+        vr7 = yr7;
+        wr7 = (0.5*xr7) + (0.866*zr7);
+        
+        ur8 = (0.866*xr8) + (-0.5*yr8);
+        vr8 = yr8;
+        wr8 = (0.5*xr8) + (0.866*zr8);
+        
+        ur9 = (0.866*xr9) + (-0.5*yr9);
+        vr9 = yr9;
+        wr9 = (0.5*xr9) + (0.866*zr9);
+        
+        ur10 = (0.866*xr10) + (-0.5*yr10);
+        vr10 = yr10;
+        wr10 = (0.5*xr10) + (0.866*zr10);
+        
+        ur11 = (0.866*xr11) + (-0.5*yr11);
+        vr11 = yr11;
+        wr11 = (0.5*xr11) + (0.866*zr11);
+        
+        
+        printf("\n%f\t%f\t%f", ur0, vr0, wr0); // 300 graus
+        printf("\n%f\t%f\t%f", ur1, vr1, wr1); // 300 graus
+        printf("\n%f\t%f\t%f", ur2, vr2, wr2); // 300 graus
+        printf("\n%f\t%f\t%f", ur3, vr3, wr3); // 300 graus
+        printf("\n%f\t%f\t%f", ur4, vr4, wr4); // 300 graus
+        printf("\n%f\t%f\t%f", ur5, vr5, wr5); // 300 graus
+        printf("\n%f\t%f\t%f", ur6, vr6, wr6); // 300 graus
+        printf("\n%f\t%f\t%f", ur7, vr7, wr7); // 300 graus
+        printf("\n%f\t%f\t%f", ur8, vr8, wr8); // 300 graus
+        printf("\n%f\t%f\t%f", ur9, vr9, wr9); // 300 graus
+        printf("\n%f\t%f\t%f", ur10, vr10, wr10); // 300 graus
+        printf("\n%f\t%f\t%f", ur11, vr11, wr11); // 300 graus
+        printf("\n\n\n\n\n\n\n");
+        
+        
+        xr0 = (0.866*ur0) + (-0.5*vr0);
+        yr0 = vr0;
+        zr0 = (0.5*ur0) + (0.866*wr0);
+        
+        xr1 = (0.866*ur1) + (-0.5*vr1);
+        yr1 = vr1;
+        zr1 = (0.5*ur1) + (0.866*wr1);
+        
+        xr2 = (0.866*ur2) + (-0.5*vr2);
+        yr2 = vr2;
+        zr2 = (0.5*ur2) + (0.866*wr2);
+        
+        xr3 = (0.866*ur3) + (-0.5*vr3);
+        yr3 = vr3;
+        zr3 = (0.5*ur3) + (0.866*wr3);
+
+        xr4 = (0.866*ur4) + (-0.5*vr4);
+        yr4 = vr4;
+        zr4 = (0.5*ur4) + (0.866*wr4);
+
+
+        xr5 = (0.866*ur5) + (-0.5*vr5);
+        yr5 = vr5;
+        zr5 = (0.5*ur5) + (0.866*wr5);
+
+
+        xr6 = (0.866*ur6) + (-0.5*vr6);
+        yr6 = vr6;
+        zr6 = (0.5*ur6) + (0.866*wr6);
+
+
+        xr7 = (0.866*ur7) + (-0.5*vr7);
+        yr7 = vr7;
+        zr7 = (0.5*ur7) + (0.866*wr7);
+
+
+        xr8 = (0.866*ur8) + (-0.5*vr8);
+        yr8 = vr8;
+        zr8 = (0.5*ur8) + (0.866*wr8);
+
+
+        xr9 = (0.866*ur9) + (-0.5*vr9);
+        yr9 = vr9;
+        zr9 = (0.5*ur9) + (0.866*wr9);
+
+
+        xr10 = (0.866*ur10) + (-0.5*vr10);
+        yr10 = vr10;
+        zr10 = (0.5*ur10) + (0.866*wr10);
+        
+        xr11 = (0.866*ur11) + (-0.5*vr11);
+        yr11 = vr11;
+        zr11 = (0.5*ur11) + (0.866*wr11);
+
+
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 330 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 330 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 330 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 330 graus
+        printf("\n%f\t%f\t%f", xr4, yr4, zr4); // 330 graus
+        printf("\n%f\t%f\t%f", xr5, yr5, zr5); // 330 graus
+        printf("\n%f\t%f\t%f", xr6, yr6, zr6); // 330 graus
+        printf("\n%f\t%f\t%f", xr7, yr7, zr7); // 330 graus
+        printf("\n%f\t%f\t%f", xr8, yr8, zr8); // 330 graus
+        printf("\n%f\t%f\t%f", xr9, yr9, zr9); // 330 graus
+        printf("\n%f\t%f\t%f", xr10, yr10, zr10); // 330 graus
+        printf("\n%f\t%f\t%f", xr11, yr11, zr11); // 330 graus
+        
+        
+        
+
+
+
+
+
+  
+}//end-main

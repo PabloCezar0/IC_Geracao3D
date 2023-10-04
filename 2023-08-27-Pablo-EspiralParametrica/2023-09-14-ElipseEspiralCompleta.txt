@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    
+    int numVertices = 0;
+    int numFaces = 0;
+    int k = 0;
+    
+    float vertices[1000][3]; // Array para armazenar vértices (x, y, z)
+    int faces[1000][3]; // Array para armazenar faces (índices dos vértices)
+    
+    float t = 0.0;
+    float x;
+    float y;
+    float a = 5.0;
+    float b = 2.0;
+    float r = 1.0;
+    
+    // Gerar vértices
+    for (t = 0.0; t <= 6.3; t += 0.1) {
+        
+        x = a * cos(t);
+        y = b * sin(t);
+        //x = r * cos(t);
+        //y = r * sin(t);
+        vertices[numVertices][0] = x;
+        vertices[numVertices][1] = y;
+        vertices[numVertices][2] = 0.0;
+        numVertices++;
+    }
+    
+    // Gerar faces (triângulos)
+    for (int i = 0; i < numVertices - 1; i++) {
+        faces[numFaces][0] = 3; // Número de vértices na face (triângulo)
+        faces[numFaces][1] = i;
+        faces[numFaces][2] = i + 1;
+        numFaces++;
+    }
+    faces[numFaces][0] = 3; // Conecta o último vértice ao primeiro
+    faces[numFaces][1] = numVertices - 1;
+    faces[numFaces][2] = 0;
+    numFaces++;
+    
+    // Imprimir as informações
+    printf("ply\n");
+    printf("format ascii 1.0\n");
+    printf("element vertex %d\n", numVertices);
+    printf("property float x\n");
+    printf("property float y\n");
+    printf("property float z\n");
+    printf("element face %d\n", numFaces);
+    printf("property list uchar int vertex_indices\n");
+    printf("end_header\n");
+    
+    for (int i = 0; i < numVertices; i++) {
+        printf("%f %f %f\n", vertices[i][0], vertices[i][1], vertices[i][2]);
+    }
+    
+    for (int i = 0; i < numFaces; i++) {
+        if (faces[i][1] == 0 or faces[i][2] == 0){
+            k = faces[i][2] + 1;
+            printf("%d %d %d %d\n", faces[i][0], faces[i][1], faces[i][2], k);
+        }
+        else{
+            printf("%d %d %d %d\n", faces[i][0], faces[i][1], faces[i][2]);
+        }
+    }
+    
+    return 0;
+}

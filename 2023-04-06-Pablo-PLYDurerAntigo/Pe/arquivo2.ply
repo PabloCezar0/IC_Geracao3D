@@ -1,0 +1,23 @@
+ply
+format ascii 1.0
+comment VCGLIB generated
+element vertex 10
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+element face 0
+property list uchar int vertex_indices
+end_header
+380 735 16 0 0 0 
+380 740 23 0 0 0 
+380 744 32 0 0 0 
+380 748 43 0 0 0 
+380 748 51 0 0 0 
+380 749 64 0 0 0 
+380 751 71 0 0 0 
+380 758 70 0 0 0 
+380 759 60 0 0 0 
+380 759 45 0 0 0 

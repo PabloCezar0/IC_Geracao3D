@@ -1,0 +1,17 @@
+ply
+format ascii 1.0
+element vertex 8
+property float x
+property float y
+property float z
+element face 0
+property list uchar int vertex_index
+end_header
+391 112 0
+381 116 0
+369 122 0
+363 136 0
+361 157 0
+366 173 0
+372 183 0
+377 192 0

@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    
+    float v1[3];
+    float v2[3];
+    float v3[3]; 
+    float u[3];
+    float v[3];
+    float w[3];
+    float vs[3][256]; // lista de vertices 
+    float n1;
+    float n2;
+    float n3;
+    
+    int ts[3][256]; // lista de triangulos
+    int ta[3][256]; // lista temporaria de triangulos
+    int tt = 0; //quantidade de triangulos correntes
+    int tn = 0; //quantidade de novos triangulos
+  
+    v1[0] = 1.0; v1[1] = 0.0; v1[2] = 0.0; 
+    v2[0] = 0.0; v2[1] = 1.0; v2[2] = 0.0;
+    v3[0] = 0.0; v3[1] = 0.0; v3[2] = 1.0;
+   
+    vs[0][0] = v1[0];
+    vs[1][0] = v1[1];
+    vs[2][0] = v1[2];
+    vs[0][1] = v2[0];
+    vs[1][1] = v2[1];
+    vs[2][1] = v2[2];
+    vs[0][2] = v3[0];
+    vs[1][2] = v3[1];
+    vs[2][2] = v3[2];
+   
+    ts[0][0] = 0;
+    ts[1][0] = 1;
+    ts[2][0] = 2;
+    
+    u[0] = (vs[0][ts[0][0]] + vs[0][ts[1][0]])/2.0;
+    u[1] = (vs[1][ts[0][0]] + vs[1][ts[1][0]])/2.0;
+    u[2] = (vs[2][ts[0][0]] + vs[2][ts[1][0]])/2.0;
+       
+    v[0] = (vs[0][ts[1][0]] + vs[0][ts[2][0]])/2.0;
+    v[1] = (vs[1][ts[1][0]] + vs[1][ts[2][0]])/2.0;
+    v[2] = (vs[2][ts[1][0]] + vs[2][ts[2][0]])/2.0;
+      
+    w[0] = (vs[0][ts[2][0]] + vs[0][ts[0][0]])/2.0;
+    w[1] = (vs[1][ts[2][0]] + vs[1][ts[0][0]])/2.0;
+    w[2] = (vs[2][ts[2][0]] + vs[2][ts[0][0]])/2.0;
+       
+       
+    // modulo       
+    n1 = sqrt((u[0] * u[0]) + (u[1] * u[1]) + (u[2] * u[2])); 
+    n2 = sqrt((v[0] * v[0]) + (v[1] * v[1]) + (v[2] * v[2]));
+    n3 = sqrt((w[0] * w[0]) + (w[1] * w[1]) + (w[2] * w[2]));
+              
+    //Normalizar u, v, w    
+    u[0] = (u[0]/n1);
+    u[1] = (u[1]/n1);
+    u[2] = (u[2]/n1);
+       
+    v[0] = (v[0]/n2);
+    v[1] = (v[1]/n2);
+    v[2] = (v[2]/n2);
+       
+    w[0] = (w[0]/n3);
+    w[1] = (w[1]/n3);
+    w[2] = (w[2]/n3);
+       
+    vs[0][3] = u[0];
+    vs[1][3] = u[1];
+    vs[2][3] = u[2];
+    vs[0][4] = v[0];
+    vs[1][4] = v[1];
+    vs[2][4] = v[2];
+    vs[0][5] = w[0];
+    vs[1][5] = w[1];
+    vs[2][5] = w[2];   
+    
+    int h = 0; //contador de novos triangulos
+    int i = 0; //contador de triangulos correntes
+    
+    //criar triangulos correspondentes a v1, v2,v3, u, v, w
+    //v1 u w - 0 3 5
+    ta[0][h] = i; //primeiro vertice do triangulo i - v1
+    ta[1][h] = i+3; //u
+    ta[2][h] = i+5; //w
+    
+    //u v2 v - 3 1 5
+    ta[0][h+1] = i+3; //u
+    ta[1][h+1] = i+1; //segundo vertice do triangulo i - v2
+    ta[2][h+1] = i+4; //v   
+    
+    //v v3 w - 4 2 5
+    ta[0][h+2] = i+4; //v
+    ta[1][h+2] = i+2; //terceiro vertice do triangulo i - v3
+    ta[2][h+2] = i+5; //w  
+    
+    //u v w - 3 4 5
+    ta[0][h+3] = i+3; //u
+    ta[1][h+3] = i+4; //v
+    ta[2][h+3] = i+5; //w 
+    
+    //
+    for (int k = 0; k < (4); k++) {
+        ts[0][k] = ta[0][k];
+        ts[1][k] = ta[1][k];
+        ts[2][k] = ta[2][k];        
+    }
+    
+    //
+    for (int k = 0; k < (6); k++) {  
+        printf("%f\t%f\t%f\n", vs[0][k],vs[1][k],vs[2][k]);     
+    }
+    
+    //
+    for (int k = 0; k < (4); k++) {  
+        printf("3\t%d\t%d\t%d\n", ts[0][k],ts[1][k],ts[2][k]);     
+    }
+
+
+   
+}

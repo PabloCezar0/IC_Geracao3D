@@ -1,0 +1,303 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+    int i;
+        
+        float XI, YI, ZI;
+        float XS, YS, ZS;
+        float XT, YT, ZT;
+        
+        float XRI1, YRI1, ZRI1;
+        float XRS1, YRS1, ZRS1;
+        float XRT1, YRT1, ZRT1;
+ 
+        
+        float T = 1.00;
+    
+        float BX0 = 1.5, BY0 = 0.0, BZ0 = 0.0;
+        float BX1 = 1.5, BY1 = 0.2, BZ1 = 0.0;
+        float BX2 = 2.0, BY2 = 0.4, BZ2 = 0.0;
+        float BX3 = 2.0, BY3 = 1.0, BZ3 = 0.0;// INFERIOR
+        
+        float BX4 = 2.0, BY4 = 1.0, BZ4 = 0.0;
+        float BX5 = 2.0, BY5 = 1.6, BZ5 = 0.0;
+        float BX6 = 1.75, BY6 = 2.3, BZ6 = 0.0;
+        float BX7 = 1.5, BY7 = 3.0, BZ7 = 0.0;//SUPERIOR
+        
+        float BX8 = 1.5, BY8 = 3.0, BZ8 = 0.0;
+        float BX9 = 1.45, BY9 = 3.15, BZ9 = 0.0;
+        float BX10 = 1.35, BY10 = 3.15, BZ10 = 0.0;
+        float BX11 = 1.4, BY11 = 3.0, BZ11 = 0.0;//TAMPA
+        
+        
+        
+        
+        
+            
+        XI = (((1-T)*(1-T)*(1-T))*BX0)+((3*T*((1-T)*(1-T)))*BX1)+(3*(T*T)*(1-T)*BX2)+((T*T*T)*BX3);
+        YI = (((1-T)*(1-T)*(1-T))*BY0)+((3*T*((1-T)*(1-T)))*BY1)+(3*(T*T)*(1-T)*BY2)+((T*T*T)*BY3);
+        ZI = (((1-T)*(1-T)*(1-T))*BZ0)+((3*T*((1-T)*(1-T)))*BZ1)+(3*(T*T)*(1-T)*BZ2)+((T*T*T)*BZ3);//INFERIOR
+        
+        XS = (((1-T)*(1-T)*(1-T))*BX4)+((3*T*((1-T)*(1-T)))*BX5)+(3*(T*T)*(1-T)*BX6)+((T*T*T)*BX7);
+        YS = (((1-T)*(1-T)*(1-T))*BY4)+((3*T*((1-T)*(1-T)))*BY5)+(3*(T*T)*(1-T)*BY6)+((T*T*T)*BY7);
+        ZS = (((1-T)*(1-T)*(1-T))*BZ4)+((3*T*((1-T)*(1-T)))*BZ5)+(3*(T*T)*(1-T)*BZ6)+((T*T*T)*BZ7);//SUPERIOR
+    
+        XT = (((1-T)*(1-T)*(1-T))*BX8)+((3*T*((1-T)*(1-T)))*BX9)+(3*(T*T)*(1-T)*BX10)+((T*T*T)*BX11);
+        YT = (((1-T)*(1-T)*(1-T))*BY8)+((3*T*((1-T)*(1-T)))*BY9)+(3*(T*T)*(1-T)*BY10)+((T*T*T)*BY11);
+        ZT = (((1-T)*(1-T)*(1-T))*BZ8)+((3*T*((1-T)*(1-T)))*BZ9)+(3*(T*T)*(1-T)*BZ10)+((T*T*T)*BZ11);//TAMPA
+        
+        
+
+        printf("\n%f\t%f\t%f", XI, YI, ZI);
+        printf("\n%f\t%f\t%f", XS, YS, ZS);
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT);
+        
+        
+        
+        //[cos(30)  0   sen(30)]
+        //[0        1       0  ]
+        //[-sen(30) 0   cos(30)]
+        // OBS: 30 graus em radianos eh 0.52
+        // cos(30) = 0.866
+        // sen(30) = 0.5
+        // [x   y   z][0.866  0   0.5]
+        //            [0      1   0  ]
+        //            [-0.5   0   0.866]
+        
+        
+        
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 30 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 30 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 30 graus
+        
+        
+        
+        
+        
+        
+        XI = (0.866*XRI1) + (-0.5*ZRI1);
+        YI = YRI1;
+        ZI = (0.5*XRI1) + (0.866*ZRI1);
+        
+        XS = (0.866*XRS1) + (-0.5*ZRS1);
+        YS = YRS1;
+        ZS = (0.5*XRS1) + (0.866*ZRS1);
+        
+        XT = (0.866*XRT1) + (-0.5*ZRT1);
+        YT = YRT1;
+        ZT = (0.5*XRT1) + (0.866*ZRT1);
+        
+        printf("\n%f\t%f\t%f", XI, YI, ZI); // 60 graus
+        printf("\n%f\t%f\t%f", XS, YS, ZS); // 60 graus
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT); // 60 graus
+    
+    
+
+    
+    
+    
+    
+    
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 90 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 90 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 90 graus
+        
+        
+        
+        XI = (0.866*XRI1) + (-0.5*ZRI1);
+        YI = YRI1;
+        ZI = (0.5*XRI1) + (0.866*ZRI1);
+        
+        XS = (0.866*XRS1) + (-0.5*ZRS1);
+        YS = YRS1;
+        ZS = (0.5*XRS1) + (0.866*ZRS1);
+        
+        XT = (0.866*XRT1) + (-0.5*ZRT1);
+        YT = YRT1;
+        ZT = (0.5*XRT1) + (0.866*ZRT1);
+        
+        printf("\n%f\t%f\t%f", XI, YI, ZI); // 120 graus
+        printf("\n%f\t%f\t%f", XS, YS, ZS); // 12 graus
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT); //120 graus
+        
+
+        
+        
+        
+        
+        
+        
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 150 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 150 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 150 graus
+        
+        
+        
+        
+        
+        XI = (0.866*XRI1) + (-0.5*ZRI1);
+        YI = YRI1;
+        ZI = (0.5*XRI1) + (0.866*ZRI1);
+        
+        XS = (0.866*XRS1) + (-0.5*ZRS1);
+        YS = YRS1;
+        ZS = (0.5*XRS1) + (0.866*ZRS1);
+        
+        XT = (0.866*XRT1) + (-0.5*ZRT1);
+        YT = YRT1;
+        ZT = (0.5*XRT1) + (0.866*ZRT1);
+        
+        printf("\n%f\t%f\t%f", XI, YI, ZI); // 180 graus
+        printf("\n%f\t%f\t%f", XS, YS, ZS); // 180 graus
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT); // 180 graus
+        
+        
+        
+        
+        
+        
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 210 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 210 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 210 graus
+        
+        
+        
+        
+        XI = (0.866*XRI1) + (-0.5*ZRI1);
+        YI = YRI1;
+        ZI = (0.5*XRI1) + (0.866*ZRI1);
+        
+        XS = (0.866*XRS1) + (-0.5*ZRS1);
+        YS = YRS1;
+        ZS = (0.5*XRS1) + (0.866*ZRS1);
+        
+        XT = (0.866*XRT1) + (-0.5*ZRT1);
+        YT = YRT1;
+        ZT = (0.5*XRT1) + (0.866*ZRT1);
+        
+        printf("\n%f\t%f\t%f", XI, YI, ZI); // 240 graus
+        printf("\n%f\t%f\t%f", XS, YS, ZS); // 240 graus
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT); // 240 graus
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 270 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 270 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 270 graus
+        
+        
+        
+        
+        
+        XI = (0.866*XRI1) + (-0.5*ZRI1);
+        YI = YRI1;
+        ZI = (0.5*XRI1) + (0.866*ZRI1);
+        
+        XS = (0.866*XRS1) + (-0.5*ZRS1);
+        YS = YRS1;
+        ZS = (0.5*XRS1) + (0.866*ZRS1);
+        
+        XT = (0.866*XRT1) + (-0.5*ZRT1);
+        YT = YRT1;
+        ZT = (0.5*XRT1) + (0.866*ZRT1);
+        
+        printf("\n%f\t%f\t%f", XI, YI, ZI); // 300 graus
+        printf("\n%f\t%f\t%f", XS, YS, ZS); // 300 graus
+        printf("\n%f\t%f\t%f\n\n", XT, YT, ZT); // 300 graus
+        
+        
+  
+        
+        
+        
+        
+        
+        
+        
+        XRI1 = (0.866*XI) + (-0.5*ZI);
+        YRI1 = YI;
+        ZRI1 = (0.5*XI) + (0.866*ZI);
+        
+        XRS1 = (0.866*XS) + (-0.5*ZS);
+        YRS1 = YS;
+        ZRS1 = (0.5*XS) + (0.866*ZS);
+        
+        XRT1 = (0.866*XT) + (-0.5*ZT);
+        YRT1 = YT;
+        ZRT1 = (0.5*XT) + (0.866*ZT);
+        
+        printf("\n%f\t%f\t%f", XRI1, YRI1, ZRI1); // 330 graus
+        printf("\n%f\t%f\t%f", XRS1, YRS1, ZRS1); // 330 graus
+        printf("\n%f\t%f\t%f\n\n", XRT1, YRT1, ZRT1); // 330 graus
+}
+
+
+

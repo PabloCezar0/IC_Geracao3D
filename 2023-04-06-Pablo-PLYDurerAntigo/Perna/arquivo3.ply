@@ -1,0 +1,41 @@
+ply
+format ascii 1.0
+comment VCGLIB generated
+element vertex 28
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+element face 0
+property list uchar int vertex_indices
+end_header
+390 466 -38 0 0 0 
+390 476 -38 0 0 0 
+390 482 -38 0 0 0 
+390 493 -37 0 0 0 
+390 500 -36 0 0 0 
+390 511 -34 0 0 0 
+390 521 -30 0 0 0 
+390 529 -31 0 0 0 
+390 539 -29 0 0 0 
+390 547 -29 0 0 0 
+390 554 -29 0 0 0 
+390 562 -28 0 0 0 
+390 572 -29 0 0 0 
+390 581 -29 0 0 0 
+390 589 -32 0 0 0 
+390 597 -32 0 0 0 
+390 608 -37 0 0 0 
+390 619 -39 0 0 0 
+390 630 -40 0 0 0 
+390 642 -38 0 0 0 
+390 655 -35 0 0 0 
+390 665 -33 0 0 0 
+390 676 -32 0 0 0 
+390 687 -28 0 0 0 
+390 698 -28 0 0 0 
+390 705 -25 0 0 0 
+390 717 -24 0 0 0 
+390 730 -21 0 0 0 

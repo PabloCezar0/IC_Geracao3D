@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+
+    float x0 = 1,    y0 = 1,    z0 = 0;
+    float x1 = -1,    y1 = 1,    z1 = 0;
+    float x2 = -1,    y2 = -1,    z2 = 0;
+    float x3 = 1,    y3 = -1,    z3 = 0;
+    
+    float xr0, yr0, zr0;
+    float xr1, yr1, zr1;
+    float xr2, yr2, zr2;
+    float xr3, yr3, zr3;
+     
+
+    
+
+
+        //[x y z] * [cos0	-sin0	0]
+		//          [sin0	cos0	0]
+		//          [0	   0	1]
+        // OBS: 30 graus em radianos eh 0.52
+        // cos(30) = 0.866
+        // sen(30) = 0.5
+        // [x   y   z][0.866  -0.5   0]
+        //            [0.5    0.866  0]
+        //            [0      0      1]
+        
+        xr0 = 0.866*x0 + 0.5*y0;
+        yr0 = -0.5*x0 + 0.866*y0;
+        zr0 = z0;
+        
+        xr1 = 0.866*x1 + 0.5*y1;
+        yr1 = -0.5*x1 + 0.866*y1;
+        zr1 = z1;
+        
+        xr2 = 0.866*x2 + 0.5*y2;
+        yr2 = -0.5*x2 + 0.866*y2;
+        zr2 = z2;
+        
+        xr3 = 0.866*x3 + 0.5*y3;
+        yr3 = -0.5*x3 + 0.866*y3;
+        zr3 = z3;
+        
+        printf("\n%f\t%f\t%f", xr0, yr0, zr0); // 30 graus
+        printf("\n%f\t%f\t%f", xr1, yr1, zr1); // 30 graus
+        printf("\n%f\t%f\t%f", xr2, yr2, zr2); // 30 graus
+        printf("\n%f\t%f\t%f", xr3, yr3, zr3); // 30 graus
+        
+
+
+
+
+
+  
+}//end-main

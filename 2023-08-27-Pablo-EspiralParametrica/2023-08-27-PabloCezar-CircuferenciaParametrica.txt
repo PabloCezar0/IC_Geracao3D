@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    
+    float t = 0.0;
+    float x;
+    float y;
+    float r = 1.0;
+    
+    for (t = 0.0; t <= 6.3; t += 0.1) {
+        
+        x = r*cos(t);
+        y = r*sin(t);
+        printf("%f\t%f\t0.0\n", x , y);
+        
+    }
+    
+
+    
+
+}

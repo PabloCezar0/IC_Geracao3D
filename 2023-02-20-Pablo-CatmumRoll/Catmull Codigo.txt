@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+
+void catmull(float PX1, float PY1,float PZ1, float PX2, float PY2, float PZ2, float PX3, float PY3, float PZ3, float PX4, float PY4, float PZ4) //p[0]  = X, p[1] = Y, p[2] = Z
+{
+  float x = 0.0, y = 0.0, z = 0.0;
+  float T1 = 0.0, T2 = 0.0, T3 = 0.0, T4 = 0.0;
+
+
+  for (float t = 0.0; t < 1.0; t += 0.001) {
+      T1 = (pow(-t,3)) + (2*(pow(t,2))) - t;
+      T2 = (3*(pow(t,3))) - (5*(pow(t,2))) + 2;
+      T3 = (-3*(pow(t,3))) + (4*(pow(t,2))) + t;
+      T4 = (pow(t,3)) - (pow(t,2));
+      x = 0.5*((PX1*T1) + (PX2*T2) + (PX3*T3) + (PX4*T4));
+      y = 0.5*((PY1*T1) + (PY2*T2) + (PY3*T3) + (PY4*T4));
+      z = 0.5*((PZ1*T1) + (PZ2*T2) + (PZ3*T3) + (PZ4*T4));
+      
+      printf("%f\t %f\t %f\n", x,y,z);
+ 
+  }
+
+}
+
+int main() {
+    float PX1 = 1, PY1 = 1, PZ1 = 1;
+    float PX2 = 2, PY2 = 1, PZ2 = 1;
+    float PX3 = 3, PY3 = 2, PZ3 = 1;
+    float PX4 = 3, PY4 = 3, PZ4 = 2;
+
+
+    catmull(PX1, PY1, PZ1, PX2, PY2, PZ2, PX3, PY3, PZ3, PX4, PY4, PZ4);
+
+  
+}//end-main
+
+
+//x = PX1*(pow(-t,3)+2*pow(t,2)-t) + PX2*(3*pow(t,3)-5*pow(t,2)+2) + PX3*(-3*pow(t,3)+4*pow(t,2)+t) + PX4*(pow(t,3)-pow(t,2));
+//y = PY1*(pow(-t,3)+2*pow(t,2)-t) + PY2*(3*pow(t,3)-5*pow(t,2)+2) + PY3*(-3*pow(t,3)+4*pow(t,2)+t) + PY4*(pow(t,3)-pow(t,2));
+//z = PZ1*(pow(-t,3)+2*pow(t,2)-t) + PZ2*(3*pow(t,3)-5*pow(t,2)+2) + PZ3*(-3*pow(t,3)+4*pow(t,2)+t) + PZ4*(pow(t,3)-pow(t,2));

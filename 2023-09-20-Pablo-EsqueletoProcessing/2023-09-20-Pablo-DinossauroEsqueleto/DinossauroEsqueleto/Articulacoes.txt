@@ -1,0 +1,46 @@
+neck
+front spine
+left forearm
+left arm1 
+left arm2
+left hand
+right forearm
+right arm1 
+right arm2
+right hand
+back spine
+back end
+tail1
+tail2
+left leg
+left knee1
+left knee2
+left foot
+right leg
+right knee1
+right knee2
+right foot
+
+
+float fspineX = 0.0, fspineY = 0.0, fspineZ = 0.0;
+float neckX = 0.0, neckY = 0.0, neckZ = 0.0;
+float lforearmX = 0.0, lforearmY = 0.0, lforearmZ = 0.0;
+float larm1X = 0.0, larm1Y = 0.0, larm1Z = 0.0;
+float larm2X = 0.0, larm2Y = 0.0, larm2Z = 0.0;
+float lhandX = 0.0, lhandY = 0.0, lhandZ = 0.0;
+float rforearmX = 0.0, rforearmY = 0.0, rforearmZ = 0.0;
+float rarm1X = 0.0, rarm1Y = 0.0, rarm1Z = 0.0;
+float rarm2X = 0.0, rarm2Y = 0.0, rarm2Z = 0.0;
+float rhandX = 0.0, rhandY = 0.0, rhandZ = 0.0;
+float bspineX = 0.0, bspineY = 0.0, bspineZ = 0.0;
+float bendX = 0.0, bendY = 0.0, bendZ = 0.0;
+float tail1X = 0.0, tail1Y = 0.0, tail1Z = 0.0;
+float tail2X = 0.0, tail2Y = 0.0, tail2Z = 0.0;
+float llegX = 0.0, llegY = 0.0, llegZ = 0.0; 
+float lknee1X = 0.0, lknee1Y = 0.0, lknee1Z = 0.0;
+float lknee2X = 0.0, lknee2Y = 0.0, lknee2Z = 0.0;
+float lfootX = 0.0, lfootY = 0.0, lfootZ = 0.0;
+float rlegX = 0.0, rlegY = 0.0, rlegZ = 0.0; 
+float rknee1X = 0.0, rknee1Y = 0.0, rknee1Z = 0.0;
+float rknee2X = 0.0, rknee2Y = 0.0, rknee2Z = 0.0;
+float rfootX = 0.0, rfootY = 0.0, rfootZ = 0.0;
